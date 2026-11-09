@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAU Història de Catalunya: El Catalanisme Polític (1900-1930)</title>
+    <title>T2 Història de Catalunya: El Catalanisme Polític (1900-1930)</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -61,7 +61,7 @@
         <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-4">
                 <div class="p-3 bg-gold-600 rounded-lg text-white font-bold text-2xl shadow-md">
-                    PAU
+                    T2
                 </div>
                 <div>
                     <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white font-serif">
@@ -92,10 +92,10 @@
                         <i class="fas fa-stream"></i> Cronologia i Resum
                     </button>
                     <button onclick="switchTab('pau')" id="tab-pau" class="tab-button text-slate-600 hover:text-gold-600 py-4 px-3 text-sm font-medium whitespace-nowrap flex items-center gap-2">
-                        <i class="fas fa-file-pen"></i> Exercicis Exàmens PAU
+                        <i class="fas fa-file-pen"></i> Exàmens PAU (11 Pràctiques)
                     </button>
                     <button onclick="switchTab('quiz')" id="tab-quiz" class="tab-button text-slate-600 hover:text-gold-600 py-4 px-3 text-sm font-medium whitespace-nowrap flex items-center gap-2">
-                        <i class="fas fa-tasks"></i> Test d'Avaluació PAU
+                        <i class="fas fa-tasks"></i> Test PAU (30 Preguntes)
                     </button>
                 </div>
             </div>
@@ -313,82 +313,384 @@
         <section id="sec-pau" class="tab-content hidden space-y-8">
             <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 border border-slate-200">
                 <div class="border-b border-slate-200 pb-4 mb-6">
-                    <span class="text-xs font-semibold uppercase tracking-wider text-gold-600">Model d'Examen Oficial</span>
-                    <h2 class="text-3xl font-bold font-serif text-navy-900 mt-1">Pràctica de Font Històrica Tipus PAU</h2>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gold-600">Model d'Exàmens Oficials PAU</span>
+                    <h2 class="text-3xl font-bold font-serif text-navy-900 mt-1">Recull d'Exàmens Pràctics PAU (11 Models)</h2>
+                    <p class="text-slate-600 text-sm mt-1">Exercicis basats en fonts documentals (textos, manifestos, dades econòmiques) amb solucions i criteris de correcció oficials.</p>
                 </div>
 
-                <!-- Font Text -->
-                <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg mb-8">
-                    <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
-                        <i class="fas fa-quote-left"></i> Font Documental: Extracte de les Bases de Manresa (1892)
-                    </div>
-                    <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
-                        "Base 1a. Estaran a càrrec del Poder central: Les relacions internacionals [...], l'exèrcit de mar i terra, la resolució de tots els afers i conflictes interregionals [...].<br>
-                        Base 3a. La llengua catalana serà l'única que, amb caràcter oficial, podrà usar-se a Catalunya [...].<br>
-                        Base 4a. Únicament els catalans, ja ho siguin per naixement o bé per naturalització, podran exercir a Catalunya càrrecs públics [...].<br>
-                        Base 6a. Catalunya serà sobirana de la seva organització interna; redactarà lliurement les seves lleis orgàniques; establirà els seus impostos [...]."
-                    </blockquote>
-                    <p class="text-right text-xs font-semibold text-slate-500 mt-2">
-                        — <em>Assemblea de Delegats de la Unió Catalanista</em>, Manresa (27-29 de març de 1892).
-                    </p>
+                <!-- Selector ràpid d'examen -->
+                <div class="flex flex-wrap gap-2 mb-8 bg-slate-100 p-3 rounded-lg border border-slate-200">
+                    <span class="text-xs font-bold text-navy-900 self-center mr-2">Selecciona Examen:</span>
+                    <button onclick="selectPauExam(1)" class="pau-btn-nav bg-gold-600 text-white font-bold text-xs px-3 py-1.5 rounded transition shadow-sm" id="btn-pau-1">Examen 1</button>
+                    <button onclick="selectPauExam(2)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-2">Examen 2</button>
+                    <button onclick="selectPauExam(3)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-3">Examen 3</button>
+                    <button onclick="selectPauExam(4)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-4">Examen 4</button>
+                    <button onclick="selectPauExam(5)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-5">Examen 5</button>
+                    <button onclick="selectPauExam(6)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-6">Examen 6</button>
+                    <button onclick="selectPauExam(7)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-7">Examen 7</button>
+                    <button onclick="selectPauExam(8)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-8">Examen 8</button>
+                    <button onclick="selectPauExam(9)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-9">Examen 9</button>
+                    <button onclick="selectPauExam(10)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-10">Examen 10</button>
+                    <button onclick="selectPauExam(11)" class="pau-btn-nav bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs px-3 py-1.5 rounded transition shadow-sm border" id="btn-pau-11">Examen 11</button>
                 </div>
 
-                <!-- Preguntes i Solucions Desplegables -->
-                <div class="space-y-6">
+                <!-- CONTENIDOR EXÀMENS PAU -->
+                <div id="pau-container">
 
-                    <!-- Pregunta 1 -->
-                    <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
-                        <h3 class="font-bold text-navy-900 text-base sm:text-lg mb-2">
-                            Pregunta 1 [2 punts]: Identifica la naturalesa del text, l'autor i resumeix les idees principals del document.
-                        </h3>
-                        <button onclick="toggleAnswer('pau1')" class="mt-2 text-sm bg-gold-600 hover:bg-gold-500 text-white font-medium px-4 py-2 rounded transition flex items-center gap-2">
-                            <i class="fas fa-eye"></i> Mostra Criteris de Correcció / Resposta Model
-                        </button>
-                        <div id="pau1" class="hidden mt-4 bg-white p-4 rounded border border-slate-300 text-sm space-y-2 text-slate-700">
-                            <p class="font-bold text-emerald-800">Criteris de correcció PAU (Resposta Model):</p>
-                            <ul class="list-disc pl-5 space-y-1">
-                                <li><strong>Tipus de font:</strong> Font primària, directa, de naturalesa político-constitucional i pública.</li>
-                                <li><strong>Autor i Context:</strong> La Unió Catalanista (assemblea de delegats conservadors i intel·lectuals presidia per Lluís Domènech i Montaner i Enric Prat de la Riba) a Manresa el 1892.</li>
-                                <li><strong>Idees principals:</strong> El document proposa la distribució de competències entre l'Estat central (defensa, relacions exteriors) i Catalunya (autogovern intern, impostos, lleis pròpies). Estableix la cooficialitat/exclusivitat del català a l'administració i la reserva de càrrecs públics exclusivament per a ciutadans catalans.</li>
-                            </ul>
+                    <!-- EXAMEN 1 -->
+                    <div id="exam-card-1" class="exam-card space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: Extracte de les Bases de Manresa (1892)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "Base 1a. Estaran a càrrec del Poder central: Les relacions internacionals [...], l'exèrcit de mar i terra, la resolució de tots els afers i conflictes interregionals [...].<br>
+                                Base 3a. La llengua catalana serà l'única que, amb caràcter oficial, podrà usar-se a Catalunya [...].<br>
+                                Base 4a. Únicament els catalans, ja ho siguin per naixement o bé per naturalització, podran exercir a Catalunya càrrecs públics [...].<br>
+                                Base 6a. Catalunya serà sobirana de la seva organització interna; redactarà lliurement les seves lleis orgàniques; establirà els seus impostos [...]."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— <em>Assemblea de Delegats de la Unió Catalanista</em>, Manresa (1892).</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Identifica la naturalesa del text, l'autor i resumeix les idees principals del document.</h3>
+                                <button onclick="toggleAnswer('pau1_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau1_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Text primari, de caràcter polític i constitucional. Redactat per la Unió Catalanista el 1892. Estableix una distribució de poders entre l'Estat espanyol (afers exteriors i defensa) i Catalunya (autogovern intern, impostos, cooficialitat exclusiva del català i cos de funcionaris propi).</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Explica el context històric de les Bases de Manresa i la diferència entre catalanisme conservador i progressista.</h3>
+                                <button onclick="toggleAnswer('pau1_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau1_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Cal situar la crisi del centralisme de la Restauració. Explicar el catalanisme progressista (Valentí Almirall, Centre Català, laic, republicanisme federal) vers el catalanisme conservador/tradicionalista (Torras i Bages, Vigatanisme, catòlic). Les Bases de Manresa responen a la síntesi conservadora d'autogovern d'arrel tradicional.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Pregunta 2 -->
-                    <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
-                        <h3 class="font-bold text-navy-900 text-base sm:text-lg mb-2">
-                            Pregunta 2 [2,5 punts]: Explica el context històric de les Bases de Manresa: l'origen del catalanisme polític i les seves primeres accions (1880-1898).
-                        </h3>
-                        <button onclick="toggleAnswer('pau2')" class="mt-2 text-sm bg-gold-600 hover:bg-gold-500 text-white font-medium px-4 py-2 rounded transition flex items-center gap-2">
-                            <i class="fas fa-eye"></i> Mostra Criteris de Correcció / Resposta Model
-                        </button>
-                        <div id="pau2" class="hidden mt-4 bg-white p-4 rounded border border-slate-300 text-sm space-y-2 text-slate-700">
-                            <p class="font-bold text-emerald-800">Criteris de correcció PAU (Resposta Model):</p>
-                            <p>L'estudiant ha de fer referència a:</p>
-                            <ul class="list-disc pl-5 space-y-1">
-                                <li>Pas de la Renaixença cultural (Aribau, Jocs Florals) al catalanisme polític de la mà de Valentí Almirall.</li>
-                                <li>Realitzacions d'Almirall: Primer Congrés Catalanista (1880), Centre Català (1882) i redactat del <em>Memorial de Greuges (1885)</em> presentat a Alfons XII.</li>
-                                <li>Discrepàncies ideològiques: aparició del catalanisme conservador (Vigatanisme de Torras i Bages). Fundació de la <strong>Unió Catalanista (1891)</strong>, d'on sorgeixen les Bases de Manresa (1892) com a primer projecte d'estatut autonomista d'impremta tradicional i federal.</li>
-                            </ul>
+                    <!-- EXAMEN 2 -->
+                    <div id="exam-card-2" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: El Memorial de Greuges (1885)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "Senyor: No tenim, Senyor, la pretensió d'intervenir en la política general d'Espanya [...]. No volem sinó demanar el respecte als nostres dits dret civils i a la nostra producció industrial. Es pretén unificar el dret civil d'Espanya absorbint el nostre [...]. Es signen tractats de comerç amb potències estrangeres que sacrifiquen la indústria catalana a favor de la matèria primera d'altres regions."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— <em>Memòria en defensa dels interessos morals i materials de Catalunya</em>, lliurada a Alfons XII (1885).</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Analitza la font (autor, context i idees principals).</h3>
+                                <button onclick="toggleAnswer('pau2_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau2_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Font primària, manifest polític unitari impulsat per Valentí Almirall i signat per entitats culturals i econòmiques catalanes. Denuncia la política centralista de Madrid, la unificació del dret civil i reclama proteccionisme econòmic per a la indústria catalana.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Per què la burgesia catalana reclamava proteccionisme? Explica la relació entre economia i catalanisme polític.</h3>
+                                <button onclick="toggleAnswer('pau2_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau2_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>La indústria tèxtil i siderúrgica catalana no era competitiva respecte a l'anglesa o alemanya. Depenia del mercat interior espanyol (80%). Quan els governs liberals signaven tractats de lliurecanvisme, la burgesia catalana es veia amenaçada, convertint el proteccionisme en un nexe d'unió amb el catalanisme polític.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Pregunta 3 -->
-                    <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
-                        <h3 class="font-bold text-navy-900 text-base sm:text-lg mb-2">
-                            Pregunta 3 [3 punts]: Com va influir el Desastre del 98 i el Tancament de Caixes en la consolidació de la Lliga Regionalista el 1901?
-                        </h3>
-                        <button onclick="toggleAnswer('pau3')" class="mt-2 text-sm bg-gold-600 hover:bg-gold-500 text-white font-medium px-4 py-2 rounded transition flex items-center gap-2">
-                            <i class="fas fa-eye"></i> Mostra Criteris de Correcció / Resposta Model
-                        </button>
-                        <div id="pau3" class="hidden mt-4 bg-white p-4 rounded border border-slate-300 text-sm space-y-2 text-slate-700">
-                            <p class="font-bold text-emerald-800">Criteris de correcció PAU (Resposta Model):</p>
-                            <ul class="list-disc pl-5 space-y-1">
-                                <li>La pèrdua de les colònies (Cuba, Puerto Rico, Filipines) el 1898 va generar una crisi econòmica i política generalitzada a Espanya, desfent el prestigi dels partits dinàstics (Liberal i Conservador).</li>
-                                <li>El 1899, la pujada d'impostos del govern espanyol provoca el <strong>Tancament de Caixes</strong> a Barcelona, liderat pel Dr. Bartomeu Robert, on els comerciants es neguen a pagar.</li>
-                                <li>Això impulsa la burgesia a entrar directament en la política organitzada. Es funda la Unió Regionalista i es fusiona amb el Centre Nacional Català per crear la <strong>Lliga Regionalista (1901)</strong>.</li>
-                                <li>Victòria de la <em>Candidatura dels Quatre Presidents</em> a Barcelona el 1901, trencat definitivament el monopoli del torn dinàstic a Catalunya.</li>
-                            </ul>
+                    <!-- EXAMEN 3 -->
+                    <div id="exam-card-3" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: El Tancament de Caixes (1899)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "L'Alcalde de Barcelona, Dr. Bartomeu Robert, presenta la dimissió davant el Govern civil per negar-se a executar les ordres de cobrament d'impostos i els embargaments als comerciants de la ciutat que protesten contra la pujada tributària del ministre Villaverde després del desastre de Cuba."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— Crònica de la Premsa de l'època (Tardor de 1899).</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Què va ser el Tancament de Caixes i quins van ser els seus protagonistes?</h3>
+                                <button onclick="toggleAnswer('pau3_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau3_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Una protesta de donació de baixa de patents de comerç i vaga fiscal organitzada pels gremis i industrials de Barcelona el 1899 contra el nou impost del govern espanyol post-98. Protagonitzada pel Dr. Bartomeu Robert (alcalde de BCN) i les elits gremials i burgeses.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Com va conduir el Tancament de Caixes a la fundació de la Lliga Regionalista el 1901?</h3>
+                                <button onclick="toggleAnswer('pau3_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau3_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>El fracàs de la via d'entendre's amb els partits dinàstics va fer comprendre a la burgesia que necessitava representació política pròpia. La fusió entre la Unió Regionalista (nascuda del Tancament) i el Centre Nacional Català (intel·lectuals de La Veu de Catalunya) va originar la <strong>Lliga Regionalista (1901)</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMEN 4 -->
+                    <div id="exam-card-4" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: Valentí Almirall i "El Catalanisme" (1886)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "El nostre catalanisme no és d'odi ni d'exclusió; és de vida i d'afirmació. Volem que Espanya sigui una confederació de pobles lliures, on la personalitat de Catalunya no sigui anul·lada per la burocràcia madrilenya ni per una unificació artificial i barroera."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— Valentí Almirall, <em>El Catalanisme</em> (1886).</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Situa la figura de Valentí Almirall en el catalanisme polític.</h3>
+                                <button onclick="toggleAnswer('pau4_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau4_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Almirall és considerat el pare del catalanisme polític d'esquerres i progressista. Va fundar el Diari Català (1879), va promoure el Primer Congrés Catalanista (1880), el Centre Català (1882) i va escriure la primera liofiació doctrinal del catalanisme a <em>El Catalanisme</em> (1886).</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Quines diferències fonamentals hi havia entre el projecte d'Almirall i el del Bisbe Torras i Bages?</h3>
+                                <button onclick="toggleAnswer('pau4_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau4_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Almirall defensava un catalanisme laic, democràtic, republicà i influït pel federalisme de Pi i Margall. En canvi, Torras i Bages (Vigatanisme) plantejava un catalanisme d'arrel catòlica, tradicionalista, rural i estamental basat en la màxima "Catalunya serà cristiana o no serà".</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMEN 5 -->
+                    <div id="exam-card-5" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-table"></i> Font Estadística: Evolució de la Població Activa Industrial a Catalunya (1900-1930)
+                            </div>
+                            <div class="overflow-x-auto my-2">
+                                <table class="w-full text-xs sm:text-sm text-left border collapse">
+                                    <thead class="bg-slate-200 text-navy-900 font-bold">
+                                        <tr>
+                                            <th class="p-2 border">Any</th>
+                                            <th class="p-2 border">Obrers industrials (Catalunya)</th>
+                                            <th class="p-2 border">Font d'energia dominant</th>
+                                            <th class="p-2 border">% Exportació tèxtil a Espanya</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y text-slate-700">
+                                        <tr><td class="p-2 border">1900</td><td class="p-2 border">256.000 pers.</td><td class="p-2 border">Carbó / Vapor</td><td class="p-2 border">80%</td></tr>
+                                        <tr><td class="p-2 border">1930</td><td class="p-2 border">623.000 pers.</td><td class="p-2 border">Electricitat / Petroli</td><td class="p-2 border">85%</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-xs text-slate-500">Font: Elaboració a partir de les notes de la Segona Revolució Industrial a Catalunya.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Descriu l'evolució de les dades de la taula i les noves fonts d'energia introduïdes.</h3>
+                                <button onclick="toggleAnswer('pau5_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau5_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>S'observa un augment de més del doble de la població activa industrial (de 256.000 a 623.000 treballadors). Això correspon a la Segona Revolució Industrial, impulsada pel pas del vapor a l'electricitat (amb grans empreses com La Canadenca als Pirineus) i el petroli.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Explica la diversificació industrial a Catalunya i el paper de la Llei de Protecció de la Indústria Nacional (1907).</h3>
+                                <button onclick="toggleAnswer('pau5_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau5_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>A més del tèxtil, apareixen indústries lleugeres (confecció a Mataró, calçat, paper, química). La intervenció estatal mitjançant la llei de 1907 i els aranzels de 1906 i 1922 buscava articular el mercat interior espanyol, tot i que reduïa la competitivitat externa.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMEN 6 -->
+                    <div id="exam-card-6" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: Torras i Bages i "La Tradició Catalana" (1892)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "La religió és l'ànima de Catalunya [...]. L'esperit català és essencialment cristià i la seva història està unida a l'Església. Qui pretengui separar Catalunya de la seva fe, destrueix la pàtria. Catalunya serà cristiana o no serà."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— Josep Torras i Bages, Bisbe de Vic, <em>La Tradició Catalana</em> (1892).</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Quines idees centrals transmet aquest fragment?</h3>
+                                <button onclick="toggleAnswer('pau6_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau6_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Defensa del Vigatanisme: la identitat catalana és indissociable del catolicisme i de la tradició medieval. Rebuig del laïcisme modern i del republicanisme progressista.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Com va influir el Vigatanisme en la configuració de la Lliga Regionalista i quin paper hi tenia la premsa ("La Veu de Catalunya")?</h3>
+                                <button onclick="toggleAnswer('pau6_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau6_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>El Vigatanisme va aportar la base ideològica conservadora i l'alineament amb l'Església i els propietaris rurals. Aquesta tradició es va unir al Centre Nacional Català (grup al voltant del diari <em>La Veu de Catalunya</em> amb Prat de la Riba) per articular la Lliga Regionalista el 1901.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMEN 7 -->
+                    <div id="exam-card-7" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: La Candidatura dels Quatre Presidents (1901)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "La victòria electoral a Barcelona de la candidatura integrada per Albert Rusiñol, Bartomeu Robert, Lluís Domènech i Montaner i Sebastià Torres suposa el primer gran cop al pucherazo i al caciquisme dels partits dinàstics a Catalunya."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— Manifest electoral de la Candidatura Unitària (Maig de 1901).</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Què va representar la "Candidatura dels quatre presidents"?</h3>
+                                <button onclick="toggleAnswer('pau7_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau7_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Va ser una coalició entre la Unió Regionalista i el Centre Nacional Català a les eleccions de 1901. Malgrat el frau electoral del règim de la Restauració, van aconseguir 4 diputats per Barcelona, iniciant la fi del torn dinàstic a Catalunya.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Analitza la composició social dels electors i dirigents de la Lliga Regionalista.</h3>
+                                <button onclick="toggleAnswer('pau7_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau7_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>La Lliga era el partit de les classes benestants: burgesia industrial tèxtil, propietaris agraris, professionals liberals i la jerarquia ecclesiàstica. Enfront d'ells se situaven les classes populars i obreres, més pròximes al republicanisme i l'anarquisme.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMEN 8 -->
+                    <div id="exam-card-8" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: La Renaixença Popular i el Teatre de Pitarra
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "Enfront d'una literatura culta de salon que imitava la poesia medieval dels Jocs Florals, el teatre de Frederic Soler 'Pitarra' i les societats corals d'Anselm Clavé portaven el català realment parlat al poble i a la classe treballadora."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— Estudi sobre la cultura popular catalana del segle XIX.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Quines diferències hi ha entre la Renaixença culta i la Renaixença popular?</h3>
+                                <button onclick="toggleAnswer('pau8_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau8_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>La culta (Aribau, Rubió i Ors) prioritzava el català medievalitzant i poètic (Jocs Florals 1859). La popular (Clavé, Pitarra) defensava el català "que ara es parla", popularitzant la llengua entre els obrers i les classes baixes mitjançant teatre i corals.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Com va influir la premsa popular ("L'Esquella de la Torratxa", "La Campana de Gràcia") en la difusió de l'anticentralisme?</h3>
+                                <button onclick="toggleAnswer('pau8_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau8_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Mitjançant la caricatura i la lectura accessible, aquestes publicacions satíriques van denunciar la corrupció dels partits dinàstics madrilenys, difonent idees anticentralistes i de reivindicació lingüística entre la societat urbana.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMEN 9 -->
+                    <div id="exam-card-9" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: Enric Prat de la Riba i "La Nationalitat Catalana" (1906)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "Tota nacionalitat té dret a tenir el seu propi Estat [...]. Espanya no és una nació, sinó un Estat plurinacional integrat per diferents nacions, de les quals Catalunya n'és una amb personalitat pròpia inalienable."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— Enric Prat de la Riba, <em>La Nacionalitat Catalana</em> (1906).</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Resumeix el concepte de "Nació" i "Estat" segons Enric Prat de la Riba.</h3>
+                                <button onclick="toggleAnswer('pau9_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau9_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Prat de la Riba distingeix entre Nació (comunitat cultural, històrica i lingüística natural) i Estat (estructura político-administrativa). Considera que Catalunya és una nació que requereix autonomia política dins un Estat espanyol plurinacional i estructurat de forma federal/regional.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Quines accions polítiques posteriors va impulsar Prat de la Riba des de la Mancomunitat de Catalunya (1914)?</h3>
+                                <button onclick="toggleAnswer('pau9_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau9_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Com a primer president de la Mancomunitat (1914), va unificar les 4 diputacions per modernitzar infraestructures (xarxa telefònica, camins) i crear institucions culturals i pedagògiques (Institut d'Estudis Catalans, Biblioteca de Catalunya, Escoles Tècniques).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMEN 10 -->
+                    <div id="exam-card-10" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: El Segon Congrés Catalanista (1883)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "Es fa crida a tots els parlamentaris catalans dels partits dinàstics (Liberal i Conservador) perquè abandonin les seves disciplinats de partit a Madrid i formin una bancada única en defensa estricta dels interessos materials i polítics de Catalunya."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— Acords del Segon Congrés Catalanista (1883).</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Quina va ser la resposta dels diputats dels partits dinàstics a aquesta crida?</h3>
+                                <button onclick="toggleAnswer('pau10_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau10_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>La resposta va ser una meva negativa absoluta. Els diputats catalans adscrits al Partit Liberal o al Conservador van mantenir la disciplina de partit a Madrid, demostrant la ineficàcia d'intentar canviar el sistema de la Restauració des de dins.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Explica el sorgiment de la Lliga de Catalunya (1887) arran del fracàs d'aquesta estratègia interclassista.</h3>
+                                <button onclick="toggleAnswer('pau10_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau10_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Davant les discrepàncies amb Almirall i la seva oposició a l'Exposició Universal de 1888, els sectors més conservadors (Àngel Guimerà, Puig i Cadafalch, Prat de la Riba) es van escindir del Centre Català per fundar la Lliga de Catalunya (1887), que atreuria el suport definitiu de la burgesia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAMEN 11 -->
+                    <div id="exam-card-11" class="exam-card hidden space-y-6">
+                        <div class="bg-amber-50/70 border border-amber-200 p-6 rounded-lg">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold mb-2">
+                                <i class="fas fa-quote-left"></i> Font Documental: Comparativa Industrial Catalunya vs. País Basc (1900-1920)
+                            </div>
+                            <blockquote class="italic text-slate-700 text-sm sm:text-base leading-relaxed font-serif pl-4 border-l-2 border-amber-400">
+                                "En tant que a Biscaia la concentració al voltant d'Altos Hornos de Vizcaya (1902) va crear un oligopoli siderúrgic d'alt capitalització, a Catalunya el teixit industrial es caracteritzava per pimes tèxtils, metal·lúrgiques i químiques amb gran necessitat de consum elèctric regional."
+                            </blockquote>
+                            <p class="text-right text-xs font-semibold text-slate-500 mt-2">— Història Econòmica d'Espanya en el Segle XX.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 1 [2 punts]: Quines eren les principals diferències de model industrial entre Catalunya i el País Basc?</h3>
+                                <button onclick="toggleAnswer('pau11_1')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau11_1" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>El País Basc es basava en la siderúrgia pesant i la mineria de ferro molt concentrada (Altos Hornos de Vizcaya) orientada a l'exportació. Catalunya tenia un model més diversificat (tèxtil, química, metal·lúrgia de transformació, ciment) basat en mitjanes empreses i en la xarxa elèctrica.</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-lg p-5 bg-slate-50">
+                                <h3 class="font-bold text-navy-900 text-base mb-2">Pregunta 2 [3 punts]: Quins trets en comú tenien els moviments nacionalistes que van sorgir a Catalunya i al País Basc a principis del segle XX?</h3>
+                                <button onclick="toggleAnswer('pau11_2')" class="text-xs bg-gold-600 hover:bg-gold-500 text-white font-medium px-3 py-1.5 rounded transition"><i class="fas fa-eye mr-1"></i> Resposta Model</button>
+                                <div id="pau11_2" class="hidden mt-3 bg-white p-4 rounded border text-sm text-slate-700">
+                                    <p class="font-bold text-emerald-800">Solució PAU:</p>
+                                    <p>Tots dos sorgien en les regions més industrialitzades d'una Espanya agrària i centralista. Tots dos defensaven el proteccionisme econòmic, rebutjaven la gestió del govern central post-98 i reclamaven recuperar furs/institucions d'autogovern pròpies.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -396,145 +698,27 @@
             </div>
         </section>
 
-        <!-- 4. SECCIÓ QUIZ / TEST INTERACTIU -->
+        <!-- 4. SECCIÓ QUIZ / TEST INTERACTIU (30 PREGUNTES) -->
         <section id="sec-quiz" class="tab-content hidden space-y-8">
             <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 border border-slate-200">
-                <div class="border-b border-slate-200 pb-4 mb-6 flex justify-between items-center">
+                <div class="border-b border-slate-200 pb-4 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-gold-600">Avaluació de Coneixements</span>
-                        <h2 class="text-3xl font-bold font-serif text-navy-900 mt-1">Examen Test Tema 2 (PAU)</h2>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-gold-600">Avaluació Completa PAU</span>
+                        <h2 class="text-3xl font-bold font-serif text-navy-900 mt-1">Examen Test Ampliat Tema 2 (30 Preguntes)</h2>
                     </div>
                     <div id="quiz-score-badge" class="hidden bg-navy-900 text-gold-500 font-bold px-4 py-2 rounded-lg text-lg border border-gold-500">
-                        Score: <span id="score-val">0</span>/10
+                        Score: <span id="score-val">0</span>/30
                     </div>
                 </div>
 
-                <!-- Formulari del Quiz -->
                 <form id="quiz-form" class="space-y-6">
-
-                    <!-- Q1 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="1">
-                        <p class="font-bold text-navy-900 mb-3">1. Quina font d'energia va permetre principalment la mecanització massiva i el tramvia a la Catalunya de principis del s. XX?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q1" value="A"> A) Carbó d'hulla asturià.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q1" value="B"> B) Electricitat (hidroelèctrica als Pirineus).</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q1" value="C"> C) Gas natural i energia nuclear.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q1" value="D"> D) Petroli refinat a Tarragona.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
+                    <div id="quiz-questions-container" class="space-y-6">
+                        <!-- Generat dinàmicament o injectat per JS -->
                     </div>
 
-                    <!-- Q2 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="2">
-                        <p class="font-bold text-navy-900 mb-3">2. Com es deia popularment l'empresa "Barcelona Traction, Light and Power", clau en la producció elèctrica?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q2" value="A"> A) La Metal·lúrgica Catalana.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q2" value="B"> B) Altos Hornos de Cataluña.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q2" value="C"> C) La Canadenca.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q2" value="D"> D) Fecsa.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <!-- Q3 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="3">
-                        <p class="font-bold text-navy-900 mb-3">3. Quin fet cultural de 1833 es considera el punt d'inici simbòlic de la Renaixença cultural?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q3" value="A"> A) La restauració dels Jocs Florals.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q3" value="B"> B) La publicació d'Oda a la Pàtria de Bonaventura Carles Aribau.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q3" value="C"> C) La fundació del Diari Català per Valentí Almirall.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q3" value="D"> D) La signatura de les Bases de Manresa.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <!-- Q4 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="4">
-                        <p class="font-bold text-navy-900 mb-3">4. Quin intel·lectual és considerat el pare del catalanisme progressista i autor del llibre "El Catalanisme" (1886)?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q4" value="A"> A) Enric Prat de la Riba.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q4" value="B"> B) Josep Torras i Bages.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q4" value="C"> C) Valentí Almirall.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q4" value="D"> D) Francesc Cambó.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <!-- Q5 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="5">
-                        <p class="font-bold text-navy-900 mb-3">5. Com es coneix el corrent catalanista de caràcter catòlic i conservador promogut pel bisbe Torras i Bages?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q5" value="A"> A) Vigatanisme.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q5" value="B"> B) Federalisme laic.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q5" value="C"> C) Carlisme radical.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q5" value="D"> D) Centralisme moderat.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <!-- Q6 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="6">
-                        <p class="font-bold text-navy-900 mb-3">6. Quina va ser la principal petició del Memorial de Greuges lliurat al rei Alfons XII el 1885?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q6" value="A"> A) La independència immediata de Catalunya.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q6" value="B"> B) La defensa del dret civil català, la crítica al centralisme i el proteccionisme econòmic.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q6" value="C"> C) L'abolició de la monarquia espanyola.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q6" value="D"> D) L'entrada d'Espanya a la Primera Guerra Mundial.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <!-- Q7 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="7">
-                        <p class="font-bold text-navy-900 mb-3">7. L'any 1892, la Unió Catalanista va aprovar un document clau conegut com a "Bases de Manresa". Quin era el seu nom oficial?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q7" value="A"> A) Estatut d'Autonomia de Manresa.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q7" value="B"> B) Constitució de la República Catalana.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q7" value="C"> C) Bases per a la Constitució Regional Catalana.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q7" value="D"> D) Manifest de la Lliga Regionalista.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <!-- Q8 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="8">
-                        <p class="font-bold text-navy-900 mb-3">8. Què va ser el "Tancament de Caixes" de 1899 a Barcelona?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q8" value="A"> A) Un robatori massiu a les entitats bancàries de la ciutat.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q8" value="B"> B) Una vaga de comerciants i industrials que es van negar a pagar impostos al govern espanyol.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q8" value="C"> C) La tancada d'obrers a les fàbriques del tèxtil.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q8" value="D"> D) La fallida de la Borsa de Barcelona pel desastre de Cuba.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <!-- Q9 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="9">
-                        <p class="font-bold text-navy-900 mb-3">9. Quin partit polític fundat el 1901 va esdevenir la força hegemònica del catalanisme conservador fins al 1931?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q9" value="A"> A) Esquerra Republicana de Catalunya.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q9" value="B"> B) Partit Republicà Radical.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q9" value="C"> C) Lliga Regionalista.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q9" value="D"> D) Centre Català.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <!-- Q10 -->
-                    <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="10">
-                        <p class="font-bold text-navy-900 mb-3">10. Quins tres dirigents van ser les figures fonamentals en la direcció de la Lliga Regionalista?</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q10" value="A"> A) Valentí Almirall, Pi i Margall i Anselm Clavé.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q10" value="B"> B) Enric Prat de la Riba, Francesc Cambó i Josep Puig i Cadafalch.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q10" value="C"> C) Francesc Macià, Lluís Companys i Josep Tarradellas.</label>
-                            <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer"><input type="radio" name="q10" value="D"> D) Alejandro Lerroux, Cánovas del Castillo i Sagasta.</label>
-                        </div>
-                        <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
-                    </div>
-
-                    <div class="pt-4 flex items-center gap-4">
+                    <div class="pt-4 flex items-center gap-4 border-t">
                         <button type="button" onclick="evaluateQuiz()" class="bg-gold-600 hover:bg-gold-500 text-white font-bold py-3 px-8 rounded-lg shadow transition">
-                            <i class="fas fa-check-circle mr-2"></i> Avaluar Test
+                            <i class="fas fa-check-circle mr-2"></i> Avaluar Test (30 Preguntes)
                         </button>
                         <button type="button" onclick="resetQuiz()" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-medium py-3 px-6 rounded-lg transition">
                             Reiniciar
@@ -559,24 +743,20 @@
     <script>
         // Tab switching function
         function switchTab(tabId) {
-            // Hide all tab contents
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.add('hidden'));
 
-            // Deactivate all tab buttons
             const buttons = document.querySelectorAll('.tab-button');
             buttons.forEach(button => {
                 button.classList.remove('tab-active');
                 button.classList.add('text-slate-600');
             });
 
-            // Show selected tab content
             const activeContent = document.getElementById('sec-' + tabId);
             if (activeContent) {
                 activeContent.classList.remove('hidden');
             }
 
-            // Activate selected tab button
             const activeTab = document.getElementById('tab-' + tabId);
             if (activeTab) {
                 activeTab.classList.add('tab-active');
@@ -584,74 +764,130 @@
             }
         }
 
-        // Toggle solution visibility in PAU exercises
-        function toggleAnswer(id) {
-            const el = document.getElementById(id);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-            } else {
-                el.classList.add('hidden');
+        // PAU Exam switching
+        function selectPauExam(examNum) {
+            document.querySelectorAll('.exam-card').forEach(card => card.classList.add('hidden'));
+            document.querySelectorAll('.pau-btn-nav').forEach(btn => {
+                btn.classList.remove('bg-gold-600', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+
+            const activeExam = document.getElementById('exam-card-' + examNum);
+            if (activeExam) activeExam.classList.remove('hidden');
+
+            const activeBtn = document.getElementById('btn-pau-' + examNum);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-700');
+                activeBtn.classList.add('bg-gold-600', 'text-white');
             }
         }
 
-        // Quiz Answers Key & Explanations
-        const answersKey = {
-            q1: { ans: 'B', exp: 'L\'electricitat generada a les centrals Pirinenques va ser l\'element motor de la 2a Revolució Industrial a Catalunya.' },
-            q2: { ans: 'C', exp: 'Barcelona Traction va ser coneguda com "La Canadenca" pel seu capital d\'origen canadenc.' },
-            q3: { ans: 'B', exp: 'El 1833 Bonaventura Carles Aribau publica l\'Oda a la Pàtria al diari El Vapor, punt d\'inici de la Renaixença.' },
-            q4: { ans: 'C', exp: 'Valentí Almirall és el teòric clau del catalanisme progressista i autor del llibre "El Catalanisme" (1886).' },
-            q5: { ans: 'A', exp: 'El Vigatanisme era el corrent catòlic i tradicionalista de Vic liderat per Bisbe Torras i Bages.' },
-            q6: { ans: 'B', exp: 'El Memorial de Greuges (1885) defensava el dret civil propi, demanava proteccionisme i criticava el centralisme.' },
-            q7: { ans: 'C', exp: 'El nom oficial era "Bases per a la Constitució Regional Catalana", aprovades a Manresa el 1892.' },
-            q8: { ans: 'B', exp: 'El Tancament de Caixes (1899) va ser una protesta fiscal de comerciants contra l\'augment d\'impostos directes.' },
-            q9: { ans: 'C', exp: 'La Lliga Regionalista (1901) va dominar l\'escena política catalana fins a la Segona República.' },
-            q10: { ans: 'B', exp: 'Prat de la Riba, Francesc Cambó i Puig i Cadafalch van formar el trident de la Lliga.' }
-        };
+        function toggleAnswer(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.toggle('hidden');
+        }
 
-        // Quiz Evaluation
+        // 30 TEST QUESTIONS DATA
+        const quizData = [
+            { q: 1, text: "Quina font d'energia va permetre principalment la mecanització massiva i el tramvia a la Catalunya de principis del s. XX?", options: ["A) Carbó d'hulla asturià.", "B) Electricitat (hidroelèctrica als Pirineus).", "C) Gas natural i energia nuclear.", "D) Petroli refinat a Tarragona."], ans: "B", exp: "L'electricitat de les centrals pirinenques va transformar la indústria metropolitana." },
+            { q: 2, text: "Com es deia popularment l'empresa 'Barcelona Traction, Light and Power'?", options: ["A) La Metal·lúrgica Catalana.", "B) Altos Hornos de Cataluña.", "C) La Canadenca.", "D) Fecsa."], ans: "C", exp: "Coneguda popularment com La Canadenca pel seu capital d'origen canadenc." },
+            { q: 3, text: "Quin fet cultural de 1833 es considera el punt d'inici simbòlic de la Renaixença cultural?", options: ["A) La restauració dels Jocs Florals.", "B) La publicació d'Oda a la Pàtria de Bonaventura Carles Aribau.", "C) La fundació del Diari Català per Valentí Almirall.", "D) La signatura de les Bases de Manresa."], ans: "B", exp: "El poema d'Aribau al diari El Vapor marca l'inici de la Renaixença." },
+            { q: 4, text: "Quin intel·lectual és considerat el pare del catalanisme progressista i autor de 'El Catalanisme' (1886)?", options: ["A) Enric Prat de la Riba.", "B) Josep Torras i Bages.", "C) Valentí Almirall.", "D) Francesc Cambó."], ans: "C", exp: "Almirall va sintetitzar la necessitat d'un catalanisme polític autònom i laic." },
+            { q: 5, text: "Com es coneix el corrent catalanista catòlic i tradicionalista promogut pel bisbe Torras i Bages?", options: ["A) Vigatanisme.", "B) Federalisme laic.", "C) Carlisme radical.", "D) Centralisme moderat."], ans: "A", exp: "Articulat a Vic al voltant de la revista La Veu de Montserrat." },
+            { q: 6, text: "Quina va ser la principal petició del Memorial de Greuges lliurat a Alfons XII el 1885?", options: ["A) La independència de Catalunya.", "B) Defensa del dret civil català, crítica al centralisme i proteccionisme econòmic.", "C) L'abolició de la monarquia espanyola.", "D) L'entrada d'Espanya a la Primera Guerra Mundial."], ans: "B", exp: "Primer manifest unitari per defensar la indústria i el dret propi." },
+            { q: 7, text: "Quin era el nom oficial de les Bases de Manresa (1892)?", options: ["A) Estatut d'Autonomia de Manresa.", "B) Constitució de la República Catalana.", "C) Bases per a la Constitució Regional Catalana.", "D) Manifest de la Lliga Regionalista."], ans: "C", exp: "Aprovades per la Unió Catalanista com a projecte d'autogovern." },
+            { q: 8, text: "Què va ser el 'Tancament de Caixes' de 1899 a Barcelona?", options: ["A) Un robatori massiu a la borsa.", "B) Una vaga fiscal de comerciants i industrials contra l'augment d'impostos de Madrid.", "C) Una vaga general obrera del tèxtil.", "D) La fallida de la banca catalana."], ans: "B", exp: "Protesta gremial liderada pel Dr. Bartomeu Robert." },
+            { q: 9, text: "Quin partit fundat el 1901 va esdevenir la força hegemònica del catalanisme conservador?", options: ["A) ERC.", "B) Partit Republicà Radical.", "C) Lliga Regionalista.", "D) Centre Català."], ans: "C", exp: "Nascuda de la fusió entre la Unió Regionalista i el Centre Nacional Català." },
+            { q: 10, text: "Quins tres dirigents van ser la direcció fonamental de la Lliga Regionalista?", options: ["A) Almirall, Pi i Margall i Clavé.", "B) Prat de la Riba, Francesc Cambó i Puig i Cadafalch.", "C) Macià, Companys i Tarradellas.", "D) Lerroux, Cánovas i Sagasta."], ans: "B", exp: "Trident dirigent de la Lliga des de 1901." },
+            { q: 11, text: "Quin percentatge aproximat de la producció tèxtil catalana es consumia al mercat espanyol a principis del s. XX?", options: ["A) 20%.", "B) 50%.", "C) 80%.", "D) 100%."], ans: "C", exp: "Aprox. el 80% anava al mercat interior espanyol protegit per aranzels." },
+            { q: 12, text: "Quina gran empresa siderúrgica es va crear al País Basc el 1902?", options: ["A) Altos Hornos de Vizcaya.", "B) Siderúrgia Catalana SA.", "C) Minero-Metalúrgica del Sud.", "D) Aceries de Bilbao."], ans: "A", exp: "Empresa líder que va monopolitzar el sector de l'acer a Espanya." },
+            { q: 13, text: "En quin any es van restaurar els Jocs Florals a Barcelona?", options: ["A) 1833.", "B) 1859.", "C) 1880.", "D) 1892."], ans: "B", exp: "El 1859 gràcies a l'impuls de Rubió i Ors per difondre la llengua." },
+            { q: 14, text: "Quin d'aquests personatges destaca en la 'Renaixença Popular' per crear societats corals obreres?", options: ["A) Bonaventura Carles Aribau.", "B) Josep Anselm Clavé.", "C) Enric Prat de la Riba.", "D) Bisbe Torras i Bages."], ans: "B", exp: "Clavé va fundar les corals per apropar la cultura i la llengua als obrers." },
+            { q: 15, text: "Quin dramaturg va popularitzar el teatre en català del carrer ('català que ara es parla')?", options: ["A) Àngel Guimerà.", "B) Frederic Soler 'Pitarra'.", "C) Jacint Verdaguer.", "D) Joan Maragall."], ans: "B", exp: "Pitarra va ser la figura clau del teatre popular català." },
+            { q: 16, text: "Quina publicació periòdica va ser el primer diari escrit íntegrament en català (1879)?", options: ["A) La Veu de Catalunya.", "B) Diari Català.", "C) L'Esquella de la Torratxa.", "D) El Vapor."], ans: "B", exp: "Fundat per Valentí Almirall el 1879." },
+            { q: 17, text: "Quin partit polític de caràcter catalanista es va fundar el 1882 a partir del Primer Congrés Catalanista?", options: ["A) Centre Català.", "B) Lliga de Catalunya.", "C) Unió Catalanista.", "D) Partit Federal."], ans: "A", exp: "El Centre Català va ser el primer partit estrictament catalanista." },
+            { q: 18, text: "A quin monarca va anar adreçat el Memorial de Greuges el 1885?", options: ["A) Isabel II.", "B) Amadeu de Savoia.", "C) Alfons XII.", "D) Alfons XIII."], ans: "C", exp: "Rebut per Alfons XII pocs mesos abans de morir." },
+            { q: 19, text: "Per quin motiu es va enfrontar Valentí Almirall amb la burgesia catalana el 1888?", options: ["A) Perquè Almirall s'oposava a la celebració de l'Exposició Universal de Barcelona.", "B) Perquè Almirall volia prohibir el català.", "C) Per la signatura de les Bases de Manresa.", "D) Pel Tancament de Caixes."], ans: "A", exp: "Almirall considerava que l'Exposició era fer el joc al govern central centralista." },
+            { q: 20, text: "Quina entitat es va fundar el 1887 com a escissió conservadora del Centre Català?", options: ["A) Lliga de Catalunya.", "B) Unió Catalanista.", "C) Acció Catalana.", "D) Partit Nacionalista."], ans: "A", exp: "Fundada per Guimerà, Puig i Cadafalch i Prat de la Riba." },
+            { q: 21, text: "A quina figura històrica anava adreçat el 'Missatge a la Reina Regent' el 1888?", options: ["A) Maria Cristina d'Habsburg.", "B) Isabel II.", "C) Victòria d'Anglaterra.", "D) Eugènia de Montijo."], ans: "A", exp: "Adreçat a la Reina Regent Maria Cristina demanant autonomia." },
+            { q: 22, text: "Quantes bases tenien oficialment les anomenades 'Bases de Manresa' de 1892?", options: ["A) 10.", "B) 17.", "C) 25.", "D) 50."], ans: "B", exp: "Constava de 17 bases de caràcter autonomista i regional." },
+            { q: 23, text: "Quin cos policial propi reivindicaven específicament les Bases de Manresa?", options: ["A) Guàrdia Civil.", "B) Mossos d'Esquadra.", "C) Policia Armada.", "D) Somatent de Madrid."], ans: "B", exp: "Reclamaven el manteniment de l'antic cos dels Mossos d'Esquadra." },
+            { q: 24, text: "Quin esdeveniment de 1898 va provocar una colossat crisi de l'Estat espanyol i la pèrdua de colònies?", options: ["A) La Setmana Tràgica.", "B) El Desastre del 98 (Cuba i Filipines).", "C) La Vaga de La Canadenca.", "D) La Llei de Jurisdiccions."], ans: "B", exp: "La pèrdua de Cuba i Filipines va esfondrar el prestigi del torn dinàstic." },
+            { q: 25, text: "Quin metge i polític va encapçalar l'Alcaldia de Barcelona durant el Tancament de Caixes (1899)?", options: ["A) Dr. Bartomeu Robert.", "B) Dr. Josep Trueta.", "C) Francesc Cambó.", "D) Lluís Domènech."], ans: "A", exp: "El Dr. Robert es va negar a firmar els embargaments als comerciants." },
+            { q: 26, text: "Com es va anomenar la coalició electoral guanyadora a Barcelona a les eleccions de 1901?", options: ["A) Candidatura dels Quatre Presidents.", "B) Front Popular Català.", "C) Unió de Partits Dinàstics.", "D) Bloc Solidari."], ans: "A", exp: "Integrada per Rusiñol, Robert, Domènech i Montaner i Torres." },
+            { q: 27, text: "Quin era el principal diari i òrgan d'expressió de la Lliga Regionalista?", options: ["A) La Vanguardia.", "B) El Poble Català.", "C) La Veu de Catalunya.", "D) Diari de Barcelona."], ans: "C", exp: "Fundat per Prat de la Riba com a portaveu del catalanisme conservador." },
+            { q: 28, text: "Quina llei aprovada el 1907 afavoria directament la Indústria Nacional espanyola?", options: ["A) Llei de Protecció de la Indústria Nacional.", "B) Llei d'Aranzels de Lliure Canvi.", "C) Llei del Vapor.", "D) Llei de Colònies."], ans: "A", exp: "Llei proteccionista per estimular la inversió i el consum de béns autòctons." },
+            { q: 29, text: "Quin llibre teòric clau va escriure Enric Prat de la Riba l'any 1906?", options: ["A) La Nationalitat Catalana.", "B) La Tradició Catalana.", "C) El Catalanisme.", "D) Oda a la Pàtria."], ans: "A", exp: "Obra doctrinal on distingeix entre Estat plurinacional i Nació catalana." },
+            { q: 30, text: "A quin sector industrial català pertanyia la concentració a la ciutat de Mataró a principis del s. XX?", options: ["A) Siderúrgia pesant.", "B) Confecció tèxtil i gènere de punt.", "C) Extracció de carbó.", "D) Indústria naval d'acer."], ans: "B", exp: "Mataró destaca com a nucli principal de la confecció i el punt." }
+        ];
+
+        // Render Quiz Questions
+        function renderQuiz() {
+            const container = document.getElementById('quiz-questions-container');
+            if (!container) return;
+
+            container.innerHTML = quizData.map((item) => `
+                <div class="q-block border border-slate-200 p-5 rounded-lg bg-slate-50" data-q="${item.q}">
+                    <p class="font-bold text-navy-900 mb-3">${item.q}. ${item.text}</p>
+                    <div class="space-y-2 text-sm">
+                        ${item.options.map((opt, idx) => {
+                            const val = String.fromCharCode(65 + idx);
+                            return `
+                                <label class="flex items-center gap-2 p-2 rounded hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition">
+                                    <input type="radio" name="q${item.q}" value="${val}"> ${opt}
+                                </label>
+                            `;
+                        }).join('')}
+                    </div>
+                    <div class="feedback hidden mt-3 text-xs p-3 rounded font-medium"></div>
+                </div>
+            `).join('');
+        }
+
         function evaluateQuiz() {
             let score = 0;
-            const total = 10;
+            const total = quizData.length;
 
-            for (let i = 1; i <= total; i++) {
-                const qKey = 'q' + i;
+            quizData.forEach((item) => {
+                const qKey = 'q' + item.q;
                 const selected = document.querySelector(`input[name="${qKey}"]:checked`);
-                const qBlock = document.querySelector(`.q-block[data-q="${i}"]`);
+                const qBlock = document.querySelector(`.q-block[data-q="${item.q}"]`);
                 const feedbackEl = qBlock.querySelector('.feedback');
+                
                 feedbackEl.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-emerald-100', 'text-emerald-800');
 
                 if (selected) {
-                    if (selected.value === answersKey[qKey].ans) {
+                    if (selected.value === item.ans) {
                         score++;
                         feedbackEl.classList.add('bg-emerald-100', 'text-emerald-800');
-                        feedbackEl.innerHTML = `<i class="fas fa-check mr-1"></i> <strong>Correcte!</strong> ${answersKey[qKey].exp}`;
+                        feedbackEl.innerHTML = `<i class="fas fa-check mr-1"></i> <strong>Correcte!</strong> ${item.exp}`;
                     } else {
                         feedbackEl.classList.add('bg-red-100', 'text-red-800');
-                        feedbackEl.innerHTML = `<i class="fas fa-times mr-1"></i> <strong>Incorrecte.</strong> La resposta correcta és la ${answersKey[qKey].ans}. ${answersKey[qKey].exp}`;
+                        feedbackEl.innerHTML = `<i class="fas fa-times mr-1"></i> <strong>Incorrecte.</strong> La resposta correcta és la ${item.ans}. ${item.exp}`;
                     }
                 } else {
                     feedbackEl.classList.add('bg-red-100', 'text-red-800');
-                    feedbackEl.innerHTML = `<i class="fas fa-exclamation-triangle mr-1"></i> Sense respondre. Resposta correcta: ${answersKey[qKey].ans}.`;
+                    feedbackEl.innerHTML = `<i class="fas fa-exclamation-triangle mr-1"></i> Sense respondre. Resposta correcta: ${item.ans}. ${item.exp}`;
                 }
-            }
+            });
 
-            // Display Score
             const badge = document.getElementById('quiz-score-badge');
             const scoreVal = document.getElementById('score-val');
             badge.classList.remove('hidden');
             scoreVal.textContent = score;
 
-            // Scroll to top of section smoothly
             document.getElementById('sec-quiz').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Reset Quiz
         function resetQuiz() {
             document.getElementById('quiz-form').reset();
-            const feedbacks = document.querySelectorAll('.feedback');
-            feedbacks.forEach(fb => fb.classList.add('hidden'));
+            document.querySelectorAll('.feedback').forEach(fb => fb.classList.add('hidden'));
             document.getElementById('quiz-score-badge').classList.add('hidden');
         }
+
+        window.onload = function() {
+            renderQuiz();
+        };
     </script>
 </body>
 </html>
